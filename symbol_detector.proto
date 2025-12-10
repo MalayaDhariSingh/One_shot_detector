@@ -1,0 +1,46 @@
+// protos/symbol_detector.proto
+syntax = "proto3";
+
+package symbol_detector;
+
+service SymbolDetector {
+  // RPC 1: Simple comparison (what we have now)
+  rpc Predict (PredictRequest) returns (PredictResponse);
+
+  // RPC 2: The Bobyard Special (New!)
+  // Takes a reference symbol and a full page, returns multiple locations.
+  rpc ScanBlueprint (ScanRequest) returns (ScanResponse);
+}
+
+// ... (Keep PredictRequest/PredictResponse as they were) ...
+
+message PredictRequest {
+  bytes reference_image = 1;
+  bytes query_image = 2;
+}
+
+message PredictResponse {
+  float similarity_score = 1;
+  bool is_match = 2;
+  string message = 3;
+}
+
+// --- NEW MESSAGES ---
+
+message ScanRequest {
+  bytes reference_image = 1; // The "One Shot" (The valve you circled)
+  bytes blueprint_image = 2; // The full page PDF/Image
+}
+
+message BoundingBox {
+  int32 x = 1;
+  int32 y = 2;
+  int32 width = 3;
+  int32 height = 4;
+  float score = 5;
+}
+
+message ScanResponse {
+  repeated BoundingBox matches = 1; // A list of all places we found the valve
+  string message = 2;
+}
