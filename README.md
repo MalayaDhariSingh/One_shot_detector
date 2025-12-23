@@ -1,3 +1,7 @@
+<img width="1918" height="855" alt="image" src="https://github.com/user-attachments/assets/f711b135-c555-43af-af9a-32c18fafd3a2" />
+
+https://www.linkedin.com/feed/update/urn:li:activity:7404613343975485441/
+
 Here is a professional, portfolio-ready `README.md`. It is written to highlight the specific "One-Shot" technical challenge you solved, making it perfect for showing to recruiters or the Bobyard team.
 
 Copy the code block below and save it as **`README.md`** in your project root.
@@ -156,3 +160,4 @@ If the detector is being too strict or too loose, you can adjust the thresholds 
 
 ```
 ```
+
